@@ -1,0 +1,158 @@
+import { SocraticQuestion, FinalExamQuestion } from '../types/smith';
+
+export const SOCRATIC_QUESTIONS: SocraticQuestion[] = [
+  {
+    id: 1,
+    title: 'Pregunta Socrática 1: Desplazamiento Angular en la Línea',
+    question: '¿Por qué cuando buscamos la Impedancia de Entrada Zin a lo largo de una línea de transmisión nos desplazamos en sentido horario ("Hacia el Generador" / WTG) en la escala exterior de la Carta de Smith?',
+    pedagogicalHint: 'Piensa en qué dirección viaja el observador si se para en la antena (carga) y camina por el cable hacia el transmisor (generador). ¿Qué signo adquiere la fase acumulada 2βd?',
+    coreConcepts: ['generador', 'fuente', 'longitud', 'onda', 'wtg', 'fase', 'horario', 'media onda'],
+  },
+  {
+    id: 2,
+    title: 'Pregunta Socrática 2: Lectura de la ROE (SWR) con el Compás',
+    question: 'Al medir la Relación de Onda Estacionaria (ROE o SWR) con el compás apoyado en el centro (1, 0), ¿en qué parte exacta del eje real horizontal se lee directamente el valor numérico de la ROE y por qué?',
+    pedagogicalHint: 'El círculo de ROE corta el eje horizontal en dos extremos: a la izquierda del centro (r < 1) y a la derecha del centro (r > 1). Recuerda que la ROE siempre es mayor o igual a 1 (1 ≤ ROE < ∞) y coincide con el punto de voltaje máximo (V_max).',
+    coreConcepts: ['derecha', 'real', 'vmax', 'maximo', 'resistiv', 'r > 1', 'swr'],
+  },
+  {
+    id: 3,
+    title: 'Pregunta Socrática 3: Conversión de Impedancia a Admitancia para Stubs',
+    question: 'Para calcular un acoplamiento mediante stub simple en derivación (paralelo), ¿por qué es indispensable convertir primero la impedancia de carga zL a admitancia yL trazando una recta diametral a 180° (λ/4) en la carta?',
+    pedagogicalHint: 'En circuitos eléctricos, ¿cómo se combinan elementos en paralelo frente a elementos en serie? ¿Qué ventaja matemática y gráfica tiene sumar admitancias (Y = Y_linea + Y_stub)?',
+    coreConcepts: ['paralelo', 'sumar', 'admitancia', '180', 'inverso', 'cuarto', 'lambda/4', 'shunt'],
+  },
+];
+
+export const FINAL_EXAM_QUESTIONS: FinalExamQuestion[] = [
+  {
+    id: 1,
+    topic: 'Normalización',
+    question: 'Si una antena de telefonía móvil presenta una impedancia de Z_L = 75 - j25 Ω y se conecta a una línea coaxial de Z_0 = 50 Ω, ¿cuál es su impedancia normalizada z_L?',
+    options: [
+      'z_L = 1.5 - j0.5',
+      'z_L = 0.67 - j0.33',
+      'z_L = 1.5 + j0.5',
+      'z_L = 3750 - j1250',
+    ],
+    correctIndex: 0,
+    explanation: 'z_L = Z_L / Z_0 = (75 - j25) / 50 = 75/50 - j(25/50) = 1.5 - j0.5 (adimensional).',
+  },
+  {
+    id: 2,
+    topic: 'Anatomía Visual',
+    question: 'En la Carta de Smith, ¿en qué cuadrante o región se ubican las cargas que presentan un comportamiento puramente inductivo (reactancia positiva +jx)?',
+    options: [
+      'En todo el hemisferio superior (arriba del eje real horizontal)',
+      'En todo el hemisferio inferior (abajo del eje real horizontal)',
+      'Únicamente sobre el eje real horizontal',
+      'Exclusivamente en el centro de la carta (1 + j0)',
+    ],
+    correctIndex: 0,
+    explanation: 'El hemisferio superior aloja todos los arcos con reactancia positiva (+jx, inductores), mientras que el hemisferio inferior contiene las reactancias negativas (-jx, capacitores).',
+  },
+  {
+    id: 3,
+    topic: 'Puntos Notables',
+    question: '¿Qué representa el punto ubicado en el extremo izquierdo de la Carta de Smith sobre el eje horizontal (u = -1, v = 0)?',
+    options: [
+      'Un circuito abierto perfecto (z = ∞)',
+      'Un cortocircuito perfecto (z = 0 + j0, |Γ| = 1)',
+      'Una línea perfectamente acoplada de 50 Ω',
+      'Un inductor de reactancia infinita',
+    ],
+    correctIndex: 1,
+    explanation: 'En el extremo izquierdo, tanto la resistencia r como la reactancia x son nulas (z = 0), correspondiente a un cortocircuito perfecto donde la onda se refleja totalmente con inversión de fase (Γ = -1).',
+  },
+  {
+    id: 4,
+    topic: 'Círculo de ROE',
+    question: 'Si un círculo de ROE trazado con el compás apoyado en (1, 0) corta el eje horizontal a la derecha en r = 3.0, ¿cuál es la magnitud del coeficiente de reflexión |Γ|?',
+    options: [
+      '|Γ| = 0.50',
+      '|Γ| = 0.33',
+      '|Γ| = 0.75',
+      '|Γ| = 3.00',
+    ],
+    correctIndex: 0,
+    explanation: '|Γ| = (ROE - 1) / (ROE + 1) = (3.0 - 1) / (3.0 + 1) = 2.0 / 4.0 = 0.50.',
+  },
+  {
+    id: 5,
+    topic: 'Escalas de Longitud de Onda',
+    question: '¿Cuánta distancia física d en longitudes de onda (λ) corresponde a un giro completo de 360° sobre la Carta de Smith?',
+    options: [
+      'd = 1.00 λ',
+      'd = 0.50 λ (media longitud de onda)',
+      'd = 0.25 λ (un cuarto de onda)',
+      'd = 0.125 λ',
+    ],
+    correctIndex: 1,
+    explanation: 'Una vuelta completa de 360° en la carta equivale a media longitud de onda (0.50λ), pues el desfase de ida y vuelta de la onda reflejada es 2βd = 2(2π/λ)(0.5λ) = 2π rad.',
+  },
+  {
+    id: 6,
+    topic: 'Sentido de Rotación',
+    question: 'Si conocemos la impedancia de carga en la antena y deseamos determinar la impedancia de entrada Zin vista en el transmisor a una distancia d, ¿en qué sentido debemos girar a lo largo de la escala exterior?',
+    options: [
+      'En sentido horario (en la dirección "Wavelengths Toward Generator" - WTG)',
+      'En sentido antihorario (en la dirección "Wavelengths Toward Load" - WTL)',
+      'No se gira, se traza una línea recta vertical',
+      'Se gira en sentido horario solo si la reactancia es capacitiva',
+    ],
+    correctIndex: 0,
+    explanation: 'Al avanzar desde la carga (antena) hacia el generador (transmisor), siempre nos desplazamos en sentido de las manecillas del reloj (WTG).',
+  },
+  {
+    id: 7,
+    topic: 'Transformador de Cuarto de Onda',
+    question: 'Se desea acoplar una antena puramente resistiva de Z_L = 100 Ω a una línea principal de Z_0 = 50 Ω mediante una sección de λ/4. ¿Qué impedancia característica Z_01 debe tener dicha sección?',
+    options: [
+      'Z_01 = 75.0 Ω',
+      'Z_01 = 70.71 Ω',
+      'Z_01 = 150.0 Ω',
+      'Z_01 = 50.0 Ω',
+    ],
+    correctIndex: 1,
+    explanation: 'Z_01 = √(Z_0 · Z_L) = √(50 · 100) = √5000 ≈ 70.71 Ω.',
+  },
+  {
+    id: 8,
+    topic: 'Conversión a Admitancia',
+    question: 'Para convertir una impedancia normalizada z_L a su admitancia normalizada equivalente y_L = 1/z_L sobre la Carta de Smith usando regla y compás, ¿qué trazo geométrico se realiza?',
+    options: [
+      'Se traza una perpendicular hacia el eje vertical',
+      'Se proyecta una línea recta desde z_L pasando por el centro (1, 0) hasta el punto diametralmente opuesto a 180° en el círculo de ROE',
+      'Se duplica el radio del compás',
+      'Se desplaza 0.50 λ en sentido horario',
+    ],
+    correctIndex: 1,
+    explanation: 'Invertir un número complejo conforme en el plano de reflexión equivale a Γ_y = -Γ_z, lo que corresponde a una rotación de exactamente 180° (media circunferencia en el círculo de ROE).',
+  },
+  {
+    id: 9,
+    topic: 'Acoplamiento por Stub Simple',
+    question: 'En el método de acoplamiento por stub simple en paralelo, ¿a qué curva geométrica de la carta debemos desplazarnos desde la carga para ubicar la posición d de inserción del stub?',
+    options: [
+      'Al círculo de resistencia r = 0',
+      'Al círculo de conductancia unitaria g = 1.0 (círculo 1 + jb)',
+      'Al eje de reactancia infinita',
+      'Al borde exterior de la carta',
+    ],
+    correctIndex: 1,
+    explanation: 'Se busca que la admitancia de la línea sea y = 1.0 + jb, para que al sumarle el stub en paralelo (y_stub = -jb), la admitancia total resulte y_total = (1 + jb) - jb = 1.0 + j0 (acoplamiento perfecto).',
+  },
+  {
+    id: 10,
+    topic: 'Puntos de Stub en Cortocircuito',
+    question: 'Si se utiliza un tramo de línea en cortocircuito como stub reactivo en derivación (paralelo), ¿dónde se ubica su punto de partida en la escala de admitancia de la Carta de Smith?',
+    options: [
+      'En el extremo derecho del eje real (y = ∞, escala WTG = 0.250 λ)',
+      'En el extremo izquierdo del eje real (y = 0, escala WTG = 0.000 λ)',
+      'En el centro de la carta (1 + j0)',
+      'En el polo inductivo superior',
+    ],
+    correctIndex: 0,
+    explanation: 'En un cortocircuito, la impedancia es z = 0, por lo que su admitancia es y = 1/0 = ∞, la cual se ubica en el extremo derecho de la Carta de Smith (donde la escala WTG marca 0.250λ).',
+  },
+];

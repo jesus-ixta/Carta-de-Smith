@@ -1,0 +1,6 @@
+{
+  "name": "Carta de Smith Interactiva - ITSC",
+  "description": "Aplicación tutorial interactiva para el aprendizaje y trazado manual de la Carta de Smith en Teoría Electromagnética (ETF-1026), Instituto Tecnológico Superior de Comalcalco.",
+  "requestFramePermissions": [],
+  "majorCapabilities": ["MAJOR_CAPABILITY_SERVER_SIDE_GEMINI_API"]
+}
